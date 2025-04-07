@@ -1,0 +1,28 @@
+
+/* CSS Text */
+
+/* CSS Selector */
+/****
+    * Universal Selector * {}
+    * Type Selector h1,h2,h3
+    * Class Selector .container
+    * ID Selector #username
+    * Child selector li>a Targets any <a>elements that are children of an <li>element (but not other <a> elements in the page)
+    * Descendant Selector div span Target any <a> elements that sit inside a <p> element, even if there are other elements nested between them
+    * Adjacent sibling h1+p Target the first <p> element after any <h1> element but not other <p> elements
+    * General Sibling selector h1~p
+
+*/
+
+
+
+
+body {
+    background-color: #000;
+    color:green;
+}
+
+h1+p {
+    color: red;
+}
+
