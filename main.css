@@ -90,8 +90,8 @@
 
 
 body {
-    background-color: #fbf0f0;
-    color:#222222;
+    background-color: #222222;
+    color:#fbf0f0;
 }
 
 h1+p {
@@ -124,3 +124,44 @@ h1+p {
     margin: 5rem;
 }
 
+/** Flexbox **/
+.flex-container {
+    background-color: lightslategray;
+    width: 24rem;
+    height: 24rem;
+    display: flex;
+    flex-direction: row; /* default */
+}
+
+.flex-item-1 {
+    background-color: lightblue;
+    width: 6rem;
+    height: 6rem;
+    text-align: center;
+    line-height: 6rem;
+}
+
+.flex-item-2 {
+    background-color: lightgreen;
+    width: 6rem;
+    height: 6rem;
+    text-align: center;
+    line-height: 6rem;
+}
+
+.flex-item-3 {
+    background-color: lightpink;
+    width: 6rem;
+    height: 6rem;
+    text-align: center;
+    line-height: 6rem;
+}
+
+a:visited {
+    color: lightpink;
+}
+a {
+    color: lightblue;
+    
+    text-align: center;
+}
