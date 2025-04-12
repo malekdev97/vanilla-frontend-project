@@ -127,24 +127,39 @@ h1+p {
 /** Flexbox **/
 .flex-container {
     background-color: lightslategray;
-    width: 24rem;
-    height: 24rem;
+    /* NOTE: Flex width & height
+       by default the flex take all the width
+       but for the height depend on the flex item height
+       */
+    /* width: 24rem; */
+    /* height: 24rem; */
     display: flex;
+    /* justify content values 
+       justify-content: flex-start; is the default value
+       justify-content: flex-end;
+       justify-content: center;
+       justify-content: space-between;
+       justify-content: space-around; space between the edge of flex
+       justify-content: space-evenly; equal spacing 
+    */
+    justify-content: space-between;
+    /* flex-direction
+       flex-direction: row is the default value
+
+    */
     flex-direction: row; /* default */
 }
 
 .flex-item-1 {
     background-color: lightblue;
-    width: 6rem;
-    height: 6rem;
-    text-align: center;
+      text-align: center;
     line-height: 6rem;
 }
 
 .flex-item-2 {
     background-color: lightgreen;
     width: 6rem;
-    height: 6rem;
+    height: 12rem;
     text-align: center;
     line-height: 6rem;
 }
@@ -165,3 +180,5 @@ a {
     
     text-align: center;
 }
+
+/* General Block Container */
