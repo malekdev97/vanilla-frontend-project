@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Flexbox Cards with Consistent Button Spacing</title>
+  <title>Flexbox Cards with Pagination</title>
   <style>
     /* Reset & Base Styles */
     body {
@@ -13,12 +13,19 @@
       background: #f5f5f5;
     }
 
+    /* Main container */
+    .main-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
     /* Flex Container (for cards) */
     .cards-container {
       display: flex;
       gap: 20px;
       flex-wrap: wrap;
       justify-content: center;
+      margin-bottom: 30px;
     }
 
     /* Individual Card Styling */
@@ -30,7 +37,7 @@
       width: 300px;
       transition: transform 0.3s ease;
       display: flex;
-      flex-direction: column; /* Stack content vertically */
+      flex-direction: column;
     }
 
     .card:hover {
@@ -45,9 +52,9 @@
 
     .card-content {
       padding: 15px;
-      display: flex;          /* Make content a flex container */
-      flex-direction: column; /* Stack title, description, button */
-      flex-grow: 1;           /* Fill remaining space */
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
     }
 
     .card h3 {
@@ -56,12 +63,12 @@
     }
 
     .card p {
-      margin: 0 0 15px; /* Space below description (optional) */
+      margin: 0 0 15px;
       color: #666;
       line-height: 1.5;
     }
 
-    /* Button Styling (now with consistent spacing) */
+    /* Button Styling */
     .card-button {
       display: inline-block;
       padding: 10px 15px;
@@ -71,46 +78,189 @@
       border-radius: 4px;
       font-weight: bold;
       transition: background 0.3s ease;
-      margin-top: auto; /* Pushes button to the bottom */
-      width: fit-content; /* Ensures button doesn't stretch */
+      margin-top: auto;
+      width: fit-content;
     }
 
     .card-button:hover {
       background: #0056b3;
     }
+
+    /* Pagination Styles */
+    .pagination {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 30px;
+    }
+
+    .page-btn {
+      padding: 8px 16px;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .page-btn:hover {
+      background: #f0f0f0;
+    }
+
+    .page-btn.active {
+      background: #007BFF;
+      color: white;
+      border-color: #007BFF;
+    }
+
+    .page-btn.disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    /* Hide cards not on current page */
+    .card.hidden {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .card {
+        width: 100%;
+      }
+    }
   </style>
 </head>
 <body>
-  <div class="cards-container">
-    <!-- Card 1 (Short description) -->
-    <div class="card">
-      <img src="https://via.placeholder.com/300x180" alt="Placeholder Image">
-      <div class="card-content">
-        <h3>Card Title 1</h3>
-        <p>Short description.</p>
-        <a href="#" class="card-button">Learn More</a>
+  <div class="main-container">
+    <div class="cards-container">
+      <!-- Card 1 -->
+      <div class="card" data-page="1">
+        <img src="https://via.placeholder.com/300x180" alt="Placeholder Image">
+        <div class="card-content">
+          <h3>Card Title 1</h3>
+          <p>This is a description for the first card. Flexbox makes layouts easy!</p>
+          <a href="#" class="card-button">Learn More</a>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="card" data-page="1">
+        <img src="https://via.placeholder.com/300x180" alt="Placeholder Image">
+        <div class="card-content">
+          <h3>Card Title 2</h3>
+          <p>Another card with a description. Resize the screen to see flex-wrap in action.</p>
+          <a href="#" class="card-button">View Details</a>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="card" data-page="1">
+        <img src="https://via.placeholder.com/300x180" alt="Placeholder Image">
+        <div class="card-content">
+          <h3>Card Title 3</h3>
+          <p>Third card example. Notice how all cards align in a row.</p>
+          <a href="#" class="card-button">Click Here</a>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="card" data-page="2">
+        <img src="https://via.placeholder.com/300x180" alt="Placeholder Image">
+        <div class="card-content">
+          <h3>Card Title 4</h3>
+          <p>This card is on page 2. Pagination helps organize content.</p>
+          <a href="#" class="card-button">Learn More</a>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="card" data-page="2">
+        <img src="https://via.placeholder.com/300x180" alt="Placeholder Image">
+        <div class="card-content">
+          <h3>Card Title 5</h3>
+          <p>Another page 2 card. Click the pagination buttons to navigate.</p>
+          <a href="#" class="card-button">View Details</a>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="card" data-page="2">
+        <img src="https://via.placeholder.com/300x180" alt="Placeholder Image">
+        <div class="card-content">
+          <h3>Card Title 6</h3>
+          <p>Final card on page 2. Try adding more cards!</p>
+          <a href="#" class="card-button">Click Here</a>
+        </div>
       </div>
     </div>
 
-    <!-- Card 2 (Long description) -->
-    <div class="card">
-      <img src="https://via.placeholder.com/300x180" alt="Placeholder Image">
-      <div class="card-content">
-        <h3>Card Title 2</h3>
-        <p>This is a much longer description to demonstrate that the button spacing remains consistent regardless of text length. Flexbox solves this perfectly!</p>
-        <a href="#" class="card-button">View Details</a>
-      </div>
-    </div>
-
-    <!-- Card 3 (Medium description) -->
-    <div class="card">
-      <img src="https://via.placeholder.com/300x180" alt="Placeholder Image">
-      <div class="card-content">
-        <h3>Card Title 3</h3>
-        <p>Medium-length description. Button stays aligned.</p>
-        <a href="#" class="card-button">Click Here</a>
-      </div>
+    <!-- Pagination Controls -->
+    <div class="pagination">
+      <button class="page-btn prev-btn disabled">&laquo; Prev</button>
+      <button class="page-btn active" data-page="1">1</button>
+      <button class="page-btn" data-page="2">2</button>
+      <button class="page-btn next-btn" data-page="2">Next &raquo;</button>
     </div>
   </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const cards = document.querySelectorAll('.card');
+      const pageBtns = document.querySelectorAll('.page-btn');
+      const prevBtn = document.querySelector('.prev-btn');
+      const nextBtn = document.querySelector('.next-btn');
+      let currentPage = 1;
+      const cardsPerPage = 3;
+      const totalPages = Math.ceil(document.querySelectorAll('.card').length / cardsPerPage);
+
+      // Initialize pagination
+      function showPage(page) {
+        // Hide all cards
+        cards.forEach(card => {
+          card.classList.add('hidden');
+        });
+
+        // Show cards for current page
+        const startIndex = (page - 1) * cardsPerPage;
+        const endIndex = startIndex + cardsPerPage;
+        
+        for (let i = startIndex; i < endIndex && i < cards.length; i++) {
+          cards[i].classList.remove('hidden');
+        }
+
+        // Update active state of pagination buttons
+        pageBtns.forEach(btn => {
+          btn.classList.remove('active');
+          if (btn.dataset.page && parseInt(btn.dataset.page) === page) {
+            btn.classList.add('active');
+          }
+        });
+
+        // Update prev/next buttons
+        prevBtn.classList.toggle('disabled', page === 1);
+        nextBtn.classList.toggle('disabled', page === totalPages);
+
+        // Update data-page attributes for prev/next
+        prevBtn.dataset.page = page - 1;
+        nextBtn.dataset.page = page + 1;
+      }
+
+      // Event listeners for pagination buttons
+      pageBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          if (this.classList.contains('disabled')) return;
+          
+          const targetPage = parseInt(this.dataset.page);
+          if (targetPage && targetPage !== currentPage) {
+            currentPage = targetPage;
+            showPage(currentPage);
+          }
+        });
+      });
+
+      // Initialize first page
+      showPage(1);
+    });
+  </script>
 </body>
 </html>
