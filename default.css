@@ -1,0 +1,17 @@
+
+.flex-container { 
+    background-color:lightseagreen;
+    display:flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.card { 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 12rem;
+    height: 6rem;
+    background-color: blue;
+    border: 2px solid red;
+}

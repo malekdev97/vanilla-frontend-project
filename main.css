@@ -125,7 +125,7 @@ h1+p {
 }
 
 /** Flexbox **/
-.flex-container {
+/* .flex-container { */
     background-color: lightslategray;
     /* NOTE: Flex width & height
        by default the flex take all the width
@@ -148,7 +148,7 @@ h1+p {
 
     */
     flex-direction: row; /* default */
-}
+/* } */
 
 .flex-item-1 {
     background-color: lightblue;
